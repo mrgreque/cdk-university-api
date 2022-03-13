@@ -22,8 +22,13 @@ export class PrismaStudentsRepository implements IStudentRepository {
     };
 
     async alter(student: Student): Promise<void> {
-        
-    }
+        await client.student.update({
+            where: {
+                id: student.id
+            },
+            data: student
+        });
+    };
 
     async drop(student: Student): Promise<void> {
         

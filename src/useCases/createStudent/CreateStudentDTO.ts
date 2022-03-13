@@ -1,4 +1,4 @@
-export interface ICreateUserDTO{
+export interface ICreateStudentDTO{
     cpf: string;
     firstName: string;
     lastName: string;

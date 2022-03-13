@@ -1,6 +1,6 @@
 import { IStudentRepository } from '../../repositories/IStudentRepository';
 import { Student } from '../../entities/Student';
-import { ICreateUserDTO } from './CreateStudentDTO';
+import { ICreateStudentDTO } from './CreateStudentDTO';
 import { hash } from 'bcryptjs';
 
 
@@ -8,11 +8,11 @@ class CreateStudentUserCase {
 
     constructor(private studentRepository: IStudentRepository){};
 
-    async execute(data :ICreateUserDTO) {
+    async execute(data :ICreateStudentDTO) {
         const userAlreadyExists = await this.studentRepository.findByCpf(data.cpf);
         
         if (userAlreadyExists) {
-            throw new Error('User already exists!');
+            throw new Error('Student already exists!');
         };
 
         const user = new Student(data);
