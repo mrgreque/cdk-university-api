@@ -31,7 +31,17 @@ export class PrismaStudentsRepository implements IStudentRepository {
     };
 
     async drop(student: Student): Promise<void> {
-        
-    }
+        await client.student.delete({
+            where: {
+                id: student.id
+            }           
+        });
+    };
+
+    async findAll(): Promise<Student[]> {
+        const students: Student[] = await client.student.findMany();
+
+        return students;
+    };
 
 }

@@ -5,4 +5,5 @@ export interface IStudentRepository {
     save(student: Student): Promise<void>;
     alter(student: Student): Promise<void>;
     drop(student: Student): Promise<void>;
+    findAll(): Promise<Student[]>;
 }

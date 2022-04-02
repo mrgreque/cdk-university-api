@@ -16,7 +16,7 @@ class CreateStudentController {
 
             return response.status(201).json({message: "Created Student"})
         } catch (error) {
-            return response.status(201).json({message: error.message})
+            return response.status(400).json({message: error.message})
         };
 
     };

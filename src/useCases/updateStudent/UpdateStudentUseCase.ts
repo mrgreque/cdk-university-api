@@ -1,13 +1,13 @@
 import { hash } from 'bcryptjs';
-import { IStudentRepository } from './../../repositories/IStudentRepository';
-import { IAlterStudentDTO } from "./AlterStudentDTO";
+import { IStudentRepository } from '../../repositories/IStudentRepository';
+import { IUpdateStudentDTO } from "./UpdateStudentDTO";
 
 
-class AlterStudentUseCase {
+class UpdateStudentUseCase {
 
     constructor(private studentRepository: IStudentRepository){};
 
-    async execute(data: IAlterStudentDTO) {
+    async execute(data: IUpdateStudentDTO) {
         
         const student = await this.studentRepository.findByCpf(data.cpf);
 
@@ -28,4 +28,4 @@ class AlterStudentUseCase {
     }
 }
 
-export { AlterStudentUseCase }
+export { UpdateStudentUseCase };

@@ -1,4 +1,4 @@
-export interface IAlterStudentDTO{
+export interface IUpdateStudentDTO {
     cpf: string;
     firstName?: string;
     lastName?: string;
