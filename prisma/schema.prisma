@@ -20,3 +20,27 @@ model Student {
 
   @@map("students")
 }
+
+model Secretary {
+  id      String @id
+  cpf     String @unique
+  firstName   String
+  lastName    String
+  password    String
+  email       String
+  sector      String
+
+  @@map("secretaries")
+}
+
+model Teacher {
+  id      String @id
+  cpf     String @unique
+  firstName   String
+  lastName    String
+  password    String
+  email       String
+  theme       String
+
+  @@map("teachers")
+}

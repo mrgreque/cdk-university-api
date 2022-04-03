@@ -6,7 +6,7 @@ import { IStudentRepository } from '../IStudentRepository';
 export class PrismaStudentsRepository implements IStudentRepository {
 
     async findByCpf(cpf: string): Promise<Student> {
-        const student: Student = await client.student.findFirst({
+        const student: Student = await client.student.findUnique({
             where: {
                 cpf
             }
@@ -14,6 +14,16 @@ export class PrismaStudentsRepository implements IStudentRepository {
 
         return student;
     };
+
+    async findById(id: string): Promise<Student> {
+        const student: Student = await client.student.findUnique({
+            where: {
+                id
+            }
+        });
+
+        return student;
+    }
 
     async save(student: Student): Promise<void> {
         await client.student.create({

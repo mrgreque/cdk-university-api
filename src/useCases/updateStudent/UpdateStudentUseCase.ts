@@ -9,7 +9,7 @@ class UpdateStudentUseCase {
 
     async execute(data: IUpdateStudentDTO) {
         
-        const student = await this.studentRepository.findByCpf(data.cpf);
+        const student = await this.studentRepository.findById(data.id);
 
         if(!student) {
             throw new Error('Student not found!');

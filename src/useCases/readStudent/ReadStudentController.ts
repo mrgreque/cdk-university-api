@@ -8,8 +8,7 @@ class ReadStudentController {
         const data = request.body;
 
         try{
-            
-            if (data.cpf) {
+            if (data && request.method == 'POST') {
                 const student = await this.readStudentUseCase.execute(data);
 
                 return response.status(200).json(student);
@@ -17,7 +16,7 @@ class ReadStudentController {
                 const students = await this.readStudentUseCase.execute();
 
                 return response.status(200).json(students);
-            }
+            };
         } catch (err) {
             return response.status(400).json({
                 message: err.message || 'Unexpected error.'

@@ -1,4 +1,4 @@
-export interface ReadStudentDTO {
+export interface IReadSecretaryDTO {
     id?: string;
     cpf?: string;
 };
