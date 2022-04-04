@@ -27,7 +27,7 @@ model Secretary {
   firstName   String
   lastName    String
   password    String
-  email       String
+  email       String @unique
   sector      String
 
   @@map("secretaries")

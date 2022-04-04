@@ -14,6 +14,12 @@ class CreateSecretaryUseCase {
       throw new Error('Secretary already exists');
     };
 
+    const emailAlreadyExists = await this.secretaryRepository.findByEmail(data.email);
+
+    if(emailAlreadyExists) {
+      throw new Error('Email already exists');
+    };
+
     const secretary = new Secretary(data);
 
     const passwordHash = await hash(secretary.password, 8);

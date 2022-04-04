@@ -22,6 +22,16 @@ export class PrismaSecretaryRepository implements ISecretaryRepository{
             });
 
             return secretary;
+        };
+
+        async findByEmail(email: string): Promise<Secretary> {
+            const secretary: Secretary = await client.secretary.findUnique({
+                where: {
+                    email
+                }
+            });
+
+            return secretary;
         }
     
         async findAll(): Promise<Secretary[]> {
