@@ -1,3 +1,3 @@
 export interface IDropStudentDTO {
-    cpf: string;
+    id: string;
 };

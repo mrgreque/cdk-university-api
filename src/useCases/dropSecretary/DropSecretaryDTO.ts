@@ -1,3 +1,3 @@
 export interface IDropSecretaryDTO {
-    cpf: string;
+    id: string;
 };

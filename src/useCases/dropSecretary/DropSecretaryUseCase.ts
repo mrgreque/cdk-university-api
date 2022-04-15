@@ -7,7 +7,7 @@ class DropSecretaryUseCase {
 
     async execute(data: IDropSecretaryDTO) {
         
-        const secretary = await this.secretaryRepository.findByCpf(data.cpf);
+        const secretary = await this.secretaryRepository.findById(data.id);
 
         if(!secretary) {
             throw new Error('Secretary not found');

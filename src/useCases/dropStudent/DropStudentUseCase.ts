@@ -4,7 +4,7 @@ class DropStudentUseCase {
     constructor(private studentRepository: IStudentRepository) {};
 
     async execute(data: IDropStudentDTO) {
-        const findUser = await this.studentRepository.findByCpf(data.cpf);
+        const findUser = await this.studentRepository.findById(data.id);
 
         if (!findUser) {
             throw new Error('Student not found');

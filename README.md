@@ -20,10 +20,10 @@
 
 ## Teachers
 > Os professores terão acesso às respostas dos alunos e darão nota
-- [ ] Create
-- [ ] Read
-- [ ] Alter
-- [ ] Delete
+- [x] Create
+- [x] Read
+- [x] Alter
+- [x] Delete
 - [ ] Outhers
 
 ## Course
