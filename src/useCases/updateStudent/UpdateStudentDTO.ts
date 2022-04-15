@@ -5,4 +5,5 @@ export interface IUpdateStudentDTO {
     lastName?: string;
     password?: string;
     email?: string;
+    courseId?: string;
 }

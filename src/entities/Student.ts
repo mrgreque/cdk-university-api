@@ -7,6 +7,7 @@ class Student {
     public lastName: string;
     public password: string;
     public email: string;
+    public courseId: string;
 
     constructor(props: Omit<Student, 'id'>, id?:string) {
         Object.assign(this, props);

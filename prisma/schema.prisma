@@ -17,6 +17,8 @@ model Student {
   lastName    String
   password    String
   email       String
+  courseId    String
+  course      Course @relation(fields: courseId, references: id)
 
   @@map("students")
 }
@@ -41,6 +43,18 @@ model Teacher {
   password    String
   email       String
   theme       String
+  courseId    String
+  course      Course @relation(fields: courseId, references: id)
 
   @@map("teachers")
+}
+
+model Course {
+  id      String @id
+  name    String
+  description   String
+  teachers       Teacher[]
+  students       Student[]
+
+  @@map("courses")
 }

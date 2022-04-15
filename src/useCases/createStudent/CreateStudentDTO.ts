@@ -4,4 +4,5 @@ export interface ICreateStudentDTO{
     lastName: string;
     password: string;
     email: string;
+    courseId: string;
 }

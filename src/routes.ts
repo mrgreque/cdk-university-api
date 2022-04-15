@@ -16,6 +16,7 @@ import { readTeacherController } from './useCases/readTeacher';
 import { updateTeacherController } from './useCases/updateTeacher';
 import { dropTeacherController } from './useCases/dropTeacher';
 import { authenticateTeacherController } from './useCases/authenticateTeacher';
+import { createCourseController } from './useCases/createCourse';
 
 const router = Router();
 
@@ -30,12 +31,16 @@ router.get('/read/student', secretaryEnsureAuthenticate, (request, response) => 
 router.put('/update/student', secretaryEnsureAuthenticate, (request, response) => { return updateStudentController.handle(request, response) });
 router.delete('/drop/student', secretaryEnsureAuthenticate, (request, response) => { return dropStudentController.handle(request, response) });
 
+
 // Secretary management routes
 router.post('/create/secretary' , adminSecretaryEnsureAuthenticate, (request, response) => { return createSecretaryController.handle(request, response); });
 router.post('/read/secretary', adminSecretaryEnsureAuthenticate , (request, response) => { return readSecretaryController.handle(request, response); });
 router.get('/read/secretary', adminSecretaryEnsureAuthenticate , (request, response) => { return readSecretaryController.handle(request, response); });
 router.put('/update/secretary', adminSecretaryEnsureAuthenticate , (request, response) => { return updateSecretaryController.handle(request, response) });
 router.delete('/drop/secretary', adminSecretaryEnsureAuthenticate , (request, response) => { return dropSecretaryController.handle(request, response) });
+
+// Course management routes
+router.post('/create/course', adminSecretaryEnsureAuthenticate , (request, response) => { return createCourseController.handle(request, response); });
 
 // Teacher management routes
 router.post('/create/teacher' , adminSecretaryEnsureAuthenticate, (request, response) => { return createTeacherController.handle(request, response); });

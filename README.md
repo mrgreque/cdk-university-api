@@ -28,9 +28,12 @@
 
 ## Course
 > Os cursos serão atribuídos à uma turma e à professores que lessionam no mesmo
-- [ ] Create
-- [ ] Assign teams
-- [ ] Assign teachers
+- [x] Create
+- [ ] Read
+- [ ] Alter
+- [ ] Delete
+- [x] Assign students
+- [x] Assign teachers
 
 ## Team
 > As turmas serão o ponto de encontro entre professores, alunos e lições

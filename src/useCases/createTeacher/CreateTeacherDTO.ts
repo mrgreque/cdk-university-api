@@ -5,4 +5,5 @@ export interface ICreateTeacherDTO {
     password: string;
     email: string;
     theme: string;
+    courseId: string;
 };

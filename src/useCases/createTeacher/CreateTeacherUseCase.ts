@@ -1,3 +1,5 @@
+import { ICourseRepository } from './../../repositories/ICourseRepository';
+import { PrismaCourseRepository } from './../../repositories/implementations/PrismaCourseRepository';
 import { ICreateTeacherDTO } from './CreateTeacherDTO';
 import { hash } from 'bcryptjs';
 import { Teacher } from '../../entities/Teacher';
@@ -5,7 +7,7 @@ import { ITeacherRepository } from "../../repositories/ITeacherRepository";
 
 class CreateTeacherUseCase {
 
-    constructor(private teacherRepository: ITeacherRepository) { };
+    constructor(private teacherRepository: ITeacherRepository, private courseRepository: ICourseRepository) { };
 
     async execute(data: ICreateTeacherDTO): Promise<void> {
         
@@ -19,6 +21,12 @@ class CreateTeacherUseCase {
 
         if(emailExists) {
             throw new Error('Email already exists');
+        };
+
+        const validCourse = await this.courseRepository.findById(data.courseId);
+
+        if (!validCourse) {
+            throw new Error('Course does not exists!');
         };
 
         const teacher = new Teacher(data);
