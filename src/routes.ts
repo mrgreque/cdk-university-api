@@ -17,6 +17,8 @@ import { updateTeacherController } from './useCases/updateTeacher';
 import { dropTeacherController } from './useCases/dropTeacher';
 import { authenticateTeacherController } from './useCases/authenticateTeacher';
 import { createCourseController } from './useCases/createCourse';
+import { teacherEnsureAuthenticate } from './middlewares/TeacherEnsureAuthenticate';
+import { createTeamController } from './useCases/createTeam';
 
 const router = Router();
 
@@ -48,5 +50,8 @@ router.post('/read/teacher', adminSecretaryEnsureAuthenticate , (request, respon
 router.get('/read/teacher', adminSecretaryEnsureAuthenticate , (request, response) => { return readTeacherController.handle(request, response); });
 router.put('/update/teacher', adminSecretaryEnsureAuthenticate , (request, response) => { return updateTeacherController.handle(request, response) });
 router.delete('/drop/teacher', adminSecretaryEnsureAuthenticate , (request, response) => { return dropTeacherController.handle(request, response) });
+
+// Team management routes
+router.post('/create/team', teacherEnsureAuthenticate, (request, response) => { return createTeamController.handle(request, response); });
 
 export { router };

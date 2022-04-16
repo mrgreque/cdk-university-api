@@ -19,6 +19,8 @@ model Student {
   email       String
   courseId    String
   course      Course @relation(fields: courseId, references: id)
+  teams       StudentTeam[]
+  responses   Response[]
 
   @@map("students")
 }
@@ -45,6 +47,7 @@ model Teacher {
   theme       String
   courseId    String
   course      Course @relation(fields: courseId, references: id)
+  teams       Team[]
 
   @@map("teachers")
 }
@@ -57,4 +60,51 @@ model Course {
   students       Student[]
 
   @@map("courses")
+}
+
+model Team {
+  id            String @id
+  name          String
+  description   String
+  teacherId     String
+  teacher       Teacher @relation(fields: teacherId, references: id)
+  students      StudentTeam[]
+  lessions      Lession[]
+
+  @@map("teams")
+}
+
+model StudentTeam {
+  studentId     String
+  student       Student @relation(fields: studentId, references: id)
+  teamId        String
+  team          Team @relation(fields: teamId, references: id)
+
+  @@id([studentId, teamId])
+  @@map("student_teams")
+}
+
+model Lession {
+  id            String @id
+  name          String
+  description   String
+  teamId        String
+  team          Team @relation(fields: teamId, references: id)
+  responses     Response[]
+
+  @@map("lessons")
+}
+
+model Response {
+  id            String @id
+  studentId     String
+  student       Student @relation(fields: studentId, references: id)
+  lessonId      String
+  lesson        Lession @relation(fields: lessonId, references: id)
+  answer        String
+  file          String
+  value         Int
+  note          Int
+
+  @@map("responses")
 }
