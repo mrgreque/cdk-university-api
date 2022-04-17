@@ -37,8 +37,8 @@
 
 ## Team
 > As turmas serão o ponto de encontro entre professores, alunos e lições
-- [ ] Create
-- [ ] Assign students and teachers
+- [x] Create
+- [x] Assign students and teachers
 - [ ] Add Lession
 - [ ] Remove Lession and Student
 - [ ] Update Lession

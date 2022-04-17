@@ -8,11 +8,6 @@ export interface IStudentTeam {
         connect: {
             id: string;
         }
-    },
-    teacher: {
-        connect: {
-            id: string;
-        }
     }
 };
 
@@ -20,29 +15,26 @@ export class PrismaTeamRepository implements ITeamRepository {
     
     async save(team: Team, studentsTeam: StudentTeam[]): Promise<void> {
 
-        // Falta salvar os IDs na tabela StudentTeam
-
         let students: IStudentTeam[] = [];
 
-        studentsTeam.map( async st => {
+        await Promise.all(studentsTeam.map( async st => {
 
             students.push({
                 student: {
                     connect: {
                         id: st.studentId
                     }
-                },
-                teacher: {
-                    connect: {
-                        id: team.teacherId
-                    }
                 }
             });
-        });
 
+        }));
+        
         await client.team.create({
             data: {
-                ...team,
+                id: team.id,
+                name: team.name,
+                description: team.description,
+                teacherId: team.teacherId,
                 students: {
                     create: students
                 }

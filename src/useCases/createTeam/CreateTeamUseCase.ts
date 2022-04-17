@@ -19,7 +19,7 @@ class CreateTeamUseCase {
 
         let students: StudentTeam[] = [];
 
-        data.students.map( async st => {
+        await Promise.all(data.students.map( async st => {
 
             const userExists = await this.studentRepository.findById(st.studentId);
 
@@ -31,7 +31,7 @@ class CreateTeamUseCase {
                 studentId: st.studentId,
                 teamId: team.id
             });
-        });
+        }));
 
         await this.teamRepository.save(team, students);
     
