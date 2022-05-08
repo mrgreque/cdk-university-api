@@ -89,6 +89,9 @@ model Lession {
   name          String
   description   String
   teamId        String
+  startDate     DateTime
+  endDate       DateTime
+  file          Bytes
   team          Team @relation(fields: teamId, references: id)
   responses     Response[]
 
@@ -102,7 +105,7 @@ model Response {
   lessonId      String
   lesson        Lession @relation(fields: lessonId, references: id)
   answer        String
-  file          String
+  file          Bytes
   value         Int
   note          Int
 

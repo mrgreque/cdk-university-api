@@ -4,6 +4,7 @@
 
 ## Students
 > Os alunos terão acesso à suas lições e poderão respondê-las
+> ! Alterar método de Delete, para retirar das tabelas onde for Foreign Key
 - [x] Create
 - [x] Read
 - [x] Alter
@@ -20,6 +21,7 @@
 
 ## Teachers
 > Os professores terão acesso às respostas dos alunos e darão nota
+> ! Alterar método de Delete, para retirar das tabelas onde for Foreign Key
 - [x] Create
 - [x] Read
 - [x] Alter
@@ -29,9 +31,9 @@
 ## Course
 > Os cursos serão atribuídos à uma turma e à professores que lessionam no mesmo
 - [x] Create
-- [ ] Read
-- [ ] Alter
-- [ ] Delete
+- [x] Read
+- [x] Alter
+- [x] Delete
 - [x] Assign students
 - [x] Assign teachers
 
